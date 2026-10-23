@@ -2490,6 +2490,95 @@
       </div>
     </div>
   </section>
+  
+<!-- Daily Forensic Stories Card -->
+<a href="stories.html" class="forensic-story-card">
+  <div class="forensic-card-icon">🔬</div>
+  <div class="forensic-card-content">
+    <span class="forensic-card-tag">EXPLORE & LEARN</span>
+    <h3>Daily Forensic Stories</h3>
+    <p>Discover fascinating forensic science stories, investigations and discoveries.</p>
+    <span class="forensic-card-link">Read Stories <span>→</span></span>
+  </div>
+  <span class="forensic-card-arrow">↗</span>
+</a>
+
+<style>
+.forensic-story-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  max-width: 750px;
+  margin: 24px auto;
+  padding: 24px;
+  border: 1px solid #e0e4f0;
+  border-radius: 18px;
+  background: #ffffff;
+  color: #20243a;
+  text-decoration: none;
+  box-shadow: 0 5px 22px rgba(30, 40, 90, .07);
+  transition: .25s ease;
+  font-family: Arial, sans-serif;
+}
+.forensic-story-card:hover {
+  transform: translateY(-4px);
+  border-color: #7770ef;
+  box-shadow: 0 12px 30px rgba(79, 70, 229, .13);
+}
+.forensic-card-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #eeedff, #e1f0ff);
+  font-size: 30px;
+}
+.forensic-card-content { flex: 1; min-width: 0; }
+.forensic-card-tag {
+  color: #6258db;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+.forensic-card-content h3 {
+  margin: 8px 0;
+  font-size: 23px;
+}
+.forensic-card-content p {
+  margin: 0 0 12px;
+  color: #687086;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.forensic-card-link {
+  color: #5145dc;
+  font-size: 14px;
+  font-weight: 700;
+}
+.forensic-card-arrow {
+  align-self: flex-start;
+  color: #6258db;
+  font-size: 22px;
+}
+@media (max-width: 480px) {
+  .forensic-story-card {
+    gap: 12px;
+    padding: 17px;
+    margin: 16px 10px;
+  }
+  .forensic-card-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+  .forensic-card-content h3 { font-size: 19px; }
+  .forensic-card-content p { font-size: 13px; }
+}
+</style>
+
 
   <!-- ========== PREMIUM FEATURES ========== -->
   <section class="sec" id="features">
@@ -2514,6 +2603,7 @@
               <polyline points="12 5 19 12 12 19" />
             </svg></a>
         </div>
+        
         <div class="feat-card anim-in" style="transition-delay:.05s">
           <div class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
@@ -2616,6 +2706,7 @@
               <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
             </svg></div>
+            
           <div class="feat-title">Books</div>
           <div class="feat-desc">Curated forensic science books and study material.</div>
           <a href="books.html" class="feat-link">Browse Books <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
