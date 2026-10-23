@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForensicBuzz - Daily Forensic Stories</title>
+    <!-- Google Fonts for clean typography in both English and Hindi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. CSS VARIABLES & THEMES (Light & Dark Mode)
+           ========================================================================== */
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --accent-color: #0284c7;
+            --accent-hover: #0369a1;
+            --badge-bg: #e0f2fe;
+            --badge-text: #0369a1;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --font-family: 'Inter', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, sans-serif;
+            --header-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        html.dark {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --accent-color: #38bdf8;
+            --accent-hover: #0284c7;
+            --badge-bg: #1e3a8a;
+            --badge-text: #93c5fd;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+            --header-bg: rgba(30, 41, 59, 0.85);
+        }
+
+        /* ==========================================================================
+           2. GLOBAL STYLES & RESET
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Prevent layout breaking / horizontal scrolling */
+        img, svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           3. CONTAINER & HEADER
+           ========================================================================== */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #0284c7, #0f172a);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            box-shadow: 0 2px 4px rgba(2, 132, 199, 0.3);
+        }
+
+        .brand-text h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-text p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Control Toggle Buttons */
+        .btn-group {
+            display: inline-flex;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 3px;
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn:hover {
+            color: var(--text-main);
+        }
+
+        .btn.active {
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-icon {
+            padding: 7px;
+            border-radius: 8px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-icon:hover {
+            background-color: var(--border-color);
+        }
+
+        /* ==========================================================================
+           4. MAIN CONTENT CARD
+           ========================================================================== */
+        main {
+            flex: 1;
+            padding: 28px 0 40px;
+        }
+
+        .story-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .story-meta-top {
+            padding: 20px 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.03em;
+        }
+
+        .date-badge {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .story-header {
+            padding: 12px 24px 20px;
+        }
+
+        .story-title {
+            font-size: 1.65rem;
+            font-weight: 700;
+            line-height: 1.35;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        /* Image Wrapper & Styling */
+        .story-image-container {
+            width: 100%;
+            max-height: 420px;
+            overflow: hidden;
+            background-color: var(--bg-color);
+            position: relative;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .story-image {
+            width: 100%;
+            height: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .story-body {
+            padding: 24px;
+        }
+
+        .story-text {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            white-space: pre-line; /* Preserves paragraph spacing cleanly */
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        /* Source Footer inside Card */
+        .story-source {
+            padding-top: 16px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .story-source strong {
+            color: var(--text-main);
+        }
+
+        /* ==========================================================================
+           5. FOOTER
+           ========================================================================== */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 24px 0;
+            background-color: var(--card-bg);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
+        }
+
+        /* ==========================================================================
+           6. RESPONSIVE DESIGN (Mobile Adjustments)
+           ========================================================================== */
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .controls {
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 4px;
+            }
+
+            .story-title {
+                font-size: 1.35rem;
+            }
+
+            .story-meta-top, .story-header, .story-body {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .story-image-container {
+                max-height: 280px;
+            }
+
+            .story-image {
+                max-height: 280px;
+            }
+
+            .story-text {
+                font-size: 0.975rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+       HEADER / BRANDING & CONTROLS
+       ========================================================================== -->
+    <header>
+        <div class="container header-content">
+            <div class="brand-container">
+                <div class="brand-logo">
+                    <!-- Magnifying Glass / Fingerprint Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <path d="M11 8a3 3 0 0 0-3 3"></path>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>ForensicBuzz</h1>
+                    <p>Daily Forensic Stories</p>
+                </div>
+            </div>
+
+            <div class="controls">
+                <!-- Language Switcher -->
+                <div class="btn-group" role="group" aria-label="Language selection">
+                    <button id="btn-en" class="btn active" onclick="setLanguage('en')">English</button>
+                    <button id="btn-hi" class="btn" onclick="setLanguage('hi')">हिंदी</button>
+                </div>
+
+                <!-- Dark / Light Mode Toggle Button -->
+                <button id="theme-toggle" class="btn-icon" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <!-- Sun Icon (Light Mode) -->
+                    <svg id="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon Icon (Dark Mode) -->
+                    <svg id="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+       MAIN STORY CONTAINER
+       ========================================================================== -->
+    <main class="container">
+        <article class="story-card">
+            <!-- Story Category & Date -->
+            <div class="story-meta-top">
+                <span class="badge" id="story-category">Forensic Case File</span>
+                <div class="date-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span id="story-date">--</span>
+                </div>
+            </div>
+
+            <!-- Story Title -->
+            <div class="story-header">
+                <h2 class="story-title" id="story-title">--</h2>
+            </div>
+
+            <!-- Story Main Image -->
+            <div class="story-image-container">
+                <img id="story-image" class="story-image" src="" alt="Forensic Case Image" onerror="handleImageError(this)">
+            </div>
+
+            <!-- Story Body & Paragraphs -->
+            <div class="story-body">
+                <div class="story-text" id="story-text">--</div>
+
+                <!-- Source Reference -->
+                <div class="story-source">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                    <span><strong></strong> <a id="story-source-link" href="#" target="_blank" rel="noopener noreferrer">--</a></span>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+    <footer>
+        <div class="container footer-content">
+            <p><strong>ForensicBuzz</strong> &bull; Daily Insights into Crime Scene Science & Forensics</p>
+            <p>&copy; <span id="year"></span> ForensicBuzz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+       JAVASCRIPT LOGIC
+       ========================================================================== -->
+    <script>
+        /* ==========================================================================
+           DAILY CONTENT CONFIGURATION (UPDATE THIS SECTION DAILY)
+           ========================================================================== */
+        const DAILY_STORY = {
+            // Date of the story
+            date: "October 23, 2026",
+
+            // Story title in English and Hindi
+            titleEN: "A Closer Look at the Fingerprint Landscape",
+            titleHI: "फिंगरप्रिंट की संरचना को करीब से समझना",
+
+            // Image path (Change 'images/fingerprint.jpg' when you add local files)
+            imagePath: "stories-image.jpg",
+
+            // High Quality Online Fallback URL (Used automatically if your local file is not found)
+            imageFallback: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80",
+
+            // Detailed Story Content in English
+            textEN: `Fingerprints are one of the most important forms of evidence used in forensic investigations. Every fingerprint contains unique patterns of ridges and valleys that help forensic experts examine and compare impressions.
+
+The National Institute of Standards and Technology (NIST) highlights an interesting aspect of fingerprint examination: fingerprints are three-dimensional structures, but the impressions collected during investigations are usually two-dimensional.
+
+When a finger touches a surface, pressure, movement, and contact conditions can affect how its ridge patterns appear in the resulting impression. This means a fingerprint impression may not perfectly represent the original three-dimensional surface of the finger.
+
+Understanding this difference can help forensic researchers study fingerprint distortion and improve methods for examining fingerprint evidence.
+
+Key Learning: A fingerprint is a three-dimensional ridge structure, while a fingerprint impression is generally a two-dimensional representation of that structure.`,
+
+            // Detailed Story Content in Hindi
+            textHI: `फिंगरप्रिंट फॉरेंसिक जांच में उपयोग किए जाने वाले सबसे महत्वपूर्ण साक्ष्यों में से एक है। प्रत्येक फिंगरप्रिंट में उभरी हुई रेखाओं (Ridges) और उनके बीच की खाइयों (Valleys) के विशेष पैटर्न होते हैं, जिनकी सहायता से फॉरेंसिक विशेषज्ञ निशानों की जांच और तुलना करते हैं।
+
+अमेरिका के National Institute of Standards and Technology (NIST) ने फिंगरप्रिंट परीक्षण से जुड़ी एक महत्वपूर्ण बात पर प्रकाश डाला है। हमारी उंगलियों की सतह पर मौजूद फिंगरप्रिंट की संरचना त्रि-आयामी (3D) होती है, जबकि किसी सतह पर मिलने वाला उसका निशान सामान्यतः द्वि-आयामी (2D) होता है।
+
+जब उंगली किसी सतह को छूती है, तो दबाव, उंगली की गति और संपर्क की स्थिति के कारण फिंगरप्रिंट के निशान में बदलाव आ सकता है। इसलिए किसी सतह पर प्राप्त निशान हमेशा उंगली की वास्तविक संरचना को पूरी तरह नहीं दर्शाता।
+
+इस अंतर को समझने से वैज्ञानिकों को फिंगरप्रिंट में होने वाली विकृति का अध्ययन करने और फॉरेंसिक साक्ष्यों की जांच के तरीकों को बेहतर बनाने में मदद मिल सकती है।`,
+
+            // Source/Credit information
+        };
+        /* ==========================================================================
+           END OF DAILY CONTENT CONFIGURATION
+           ========================================================================== */
+
+
+        // State Variables
+        let currentLanguage = 'en';
+
+        // Initialize App on DOM Load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set dynamic current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Initialize Theme from localStorage or system preference
+            initTheme();
+
+            // Render Daily Story Content
+            renderStory();
+        });
+
+        // Render Story Content based on Selected Language
+        function renderStory() {
+            const isEn = currentLanguage === 'en';
+            
+            // Set Titles, Texts and Date
+            document.getElementById('story-date').textContent = DAILY_STORY.date;
+            document.getElementById('story-title').textContent = isEn ? DAILY_STORY.titleEN : DAILY_STORY.titleHI;
+            document.getElementById('story-text').textContent = isEn ? DAILY_STORY.textEN : DAILY_STORY.textHI;
+            
+            // Set Image & Alt text
+            const imgElement = document.getElementById('story-image');
+            imgElement.src = DAILY_STORY.imagePath;
+            imgElement.alt = isEn ? DAILY_STORY.titleEN : DAILY_STORY.titleHI;
+
+            // Set Source Link
+            const sourceLink = document.getElementById('story-source-link');
+            sourceLink.textContent = DAILY_STORY.sourceName;
+            sourceLink.href = DAILY_STORY.sourceUrl;
+        }
+
+        // Handle Image Loading Error gracefully with Unsplash fallback
+        function handleImageError(img) {
+            // If local image fails to load, switch to high-resolution default forensic fallback image
+            if (img.src !== DAILY_STORY.imageFallback) {
+                img.src = DAILY_STORY.imageFallback;
+            }
+        }
+
+        // Switch Language function
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            
+            const btnEn = document.getElementById('btn-en');
+            const btnHi = document.getElementById('btn-hi');
+
+            if (lang === 'en') {
+                btnEn.classList.add('active');
+                btnHi.classList.remove('active');
+            } else {
+                btnHi.classList.add('active');
+                btnEn.classList.remove('active');
+            }
+
+            renderStory();
+        }
+
+        // Theme Toggle Logic
+        function initTheme() {
+            const savedTheme = localStorage.getItem('forensicbuzz_theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                setTheme('dark');
+            } else {
+                setTheme('light');
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.contains('dark');
+            setTheme(isDark ? 'light' : 'dark');
+        }
+
+        function setTheme(mode) {
+            const iconSun = document.getElementById('icon-sun');
+            const iconMoon = document.getElementById('icon-moon');
+
+            if (mode === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                iconSun.style.display = 'block';
+                iconMoon.style.display = 'none';
+                localStorage.setItem('forensicbuzz_theme', 'dark');
+            } else {
+                document.documentElement.classList.add('light');
+                document.documentElement.classList.remove('dark');
+                iconSun.style.display = 'none';
+                iconMoon.style.display = 'block';
+                localStorage.setItem('forensicbuzz_theme', 'light');
+            }
+        }
+    </script>
+</body>
+</html>
