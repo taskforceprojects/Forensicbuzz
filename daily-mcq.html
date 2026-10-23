@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daily MCQ | ForensicBuzz</title>
+
+    <link rel="stylesheet" href="d-mcq.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="bg1"></div>
+<div class="bg2"></div>
+
+<div class="container">
+
+    <!-- Header -->
+
+    <header>
+
+        <div class="logo">
+
+            <i class="fa-solid fa-microscope"></i>
+
+            <span>ForensicBuzz</span>
+
+        </div>
+
+        <div class="header-right">
+
+            <button id="darkBtn">
+
+                <i class="fa-solid fa-moon"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- Quiz Card -->
+
+    <section class="quiz-card">
+
+        <div class="top">
+
+            <div>
+
+                <div class="badge">
+
+                    🔥 Daily Challenge
+
+                </div>
+
+                <h1>
+
+                    Daily MCQ Quiz
+
+                </h1>
+
+                <p id="todayDate">
+
+                   
+
+                </p>
+
+            </div>
+
+            <div class="score-box">
+
+                <span>🏆</span>
+
+                <strong id="score">
+
+                    0
+
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- Progress -->
+
+        <div class="progress-area">
+
+            <div class="progress-text">
+
+                <span>
+
+                    Question
+
+                    <span id="currentQuestion">
+
+                        1
+
+                    </span>
+
+                </span>
+
+                <span id="timer">
+
+                    04:00
+
+                </span>
+
+            </div>
+
+            <div class="progress">
+
+                <div class="progress-fill" id="progressFill"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Question Image -->
+
+        <div class="question-image">
+
+            <img id="questionImage"
+                src="https://placehold.co/700x280?text=ForensicBuzz"
+                alt="Question">
+
+        </div>
+
+
+        <!-- Question -->
+
+        <div class="question">
+
+            <h2 id="question">
+
+                Loading Question...
+
+            </h2>
+
+        </div>
+
+
+        <!-- Options -->
+
+        <div class="options" id="options">
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="buttons">
+
+            <button id="prevBtn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Previous
+
+            </button>
+
+            <button id="submitBtn">
+
+                Submit Answer
+
+            </button>
+
+            <button id="nextBtn">
+
+                Next
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- Result -->
+
+        <div id="result">
+
+        </div>
+
+
+        <!-- Explanation -->
+
+        <div class="explanation" id="explanation">
+
+            <h3>
+
+                💡 Explanation
+
+            </h3>
+
+            <p id="explanationText">
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Bottom Cards 
+
+
+
+    <!-- Leaderboard -->
+
+   
+       
+
+    <!-- Footer -->
+
+    <footer>
+
+        © 2026 ForensicBuzz • Daily Practice Makes Perfect
+
+    </footer>
+
+</div>
+
+
+<script src="d-mcq.js"></script>
+
+</body>
+
+</html>

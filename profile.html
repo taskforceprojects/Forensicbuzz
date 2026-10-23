@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ForensicBuzz Profile</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            background: #070b16;
+            color: white;
+            font-family: Arial, sans-serif;
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+
+            width: 90%;
+            max-width: 600px;
+
+            background: #10182b;
+
+            padding: 40px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 0 30px rgba(0, 231, 255, .15);
+
+        }
+
+        h1 {
+
+            margin-bottom: 30px;
+
+            font-size: 42px;
+        }
+
+        .info {
+
+            margin-bottom: 20px;
+
+            font-size: 22px;
+
+            line-height: 1.6;
+        }
+
+        button {
+
+            width: 100%;
+
+            padding: 16px;
+
+            margin-top: 15px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #00e7ff;
+
+            color: #000;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        button:hover {
+
+            transform: translateY(-2px);
+
+            opacity: .9;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h1>My Profile</h1>
+
+        <div id="email" class="info">
+            Loading...
+        </div>
+
+        <div id="status" class="info">
+            Checking Subscription...
+        </div>
+
+        <button onclick="buy()">
+            Subscription Offer
+        </button>
+
+        <button id="mockBtn" style="display:none" onclick="openMock()">
+            Open Mock Test
+        </button>
+
+        <button onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+    <script src="supabase.js"></script>
+
+    <script src="profile.js"></script>
+
+</body>
+
+</html>

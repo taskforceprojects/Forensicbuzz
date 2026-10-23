@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>
+
+        Mock Test
+
+    </title>
+
+    <link rel="stylesheet" href="mc.css">
+
+
+
+    <style>
+        .loader {
+
+            position: fixed;
+
+            left: 0;
+
+            top: 0;
+
+            width: 100%;
+
+            height: 100vh;
+
+            background: black;
+
+            color: #00e7ff;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 30px;
+
+            z-index: 999;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="loader" id="loader">
+
+        Checking Subscription...
+
+    </div>
+
+
+    <div class="container" style="display:none" id="app">
+
+        <h1>
+
+            Mock Test
+
+        </h1>
+
+
+        <select id="unitSelect">
+
+            <option value="">
+
+                Select Test
+
+            </option>
+
+        </select>
+
+
+        <div id="questionContainer">
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="supabase.js"></script>
+    <script src="mc.js"></script>
+</body>
+
+</html>

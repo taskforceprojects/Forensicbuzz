@@ -1,75 +1,81 @@
-# ForensicBuzz 🔬
+# ForensicBuzz
 
-**India's Most Trusted Platform for Forensic Science Preparation**
+ForensicBuzz is an educational platform designed for students preparing for forensic science examinations. The platform provides structured study materials including MCQs, notes, previous year questions, and mock tests.
 
-ForensicBuzz is an educational platform designed to help forensic science students prepare for competitive examinations through practice questions, mock tests, study notes, and learning resources.
-
-🌐 **Website:** https://forensicbuzz.com
-
-## ✨ Features
-
-- 📚 **Study Resources** – Educational notes and forensic science learning materials.
-- 📝 **MCQ Practice** – Practice multiple-choice questions for exam preparation.
-- 🎯 **Mock Tests** – Test your knowledge and improve exam readiness.
-- 📖 **Topic-Wise Learning** – Organize preparation around important forensic science subjects.
-- 📄 **Study Materials** – Access available notes and downloadable learning resources.
-- 📱 **Responsive Design** – Designed for convenient access across desktop, tablet, and mobile devices.
-
-## 🎓 Who Is It For?
-
-- Forensic science students
-- Competitive examination aspirants
-- Students studying criminalistics and forensic investigation
-- Learners interested in forensic science and related subjects
-
-## 🛠️ Technologies
-
-The technologies used depend on the project's current implementation and may include:
-
-- HTML5
-- CSS3
-- JavaScript
-- Firebase or Supabase for backend services
-- Responsive web design
-
-## 🚀 Getting Started
-
-1. Clone this repository:
-
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/forensicbuzz.git
-   ```
-
-2. Open the project folder:
-
-   ```bash
-   cd forensicbuzz
-   ```
-
-3. Open `index.html` in your browser, or use a local development server if the project requires one.
-
-4. Configure any required environment variables or backend services according to the project setup.
-
-## 🌐 Live Website
-
-Visit **[ForensicBuzz.com](https://forensicbuzz.com)** to explore the platform.
-
-## 🎯 Our Mission
-
-Our mission is to make forensic science education more accessible by providing organized study resources, practice opportunities, and useful learning tools for students.
-
-## 🤝 Contributions
-
-Contributions, suggestions, and improvements are welcome. Please open an issue or submit a pull request to propose changes.
-
-## ⚠️ Disclaimer
-
-ForensicBuzz is an educational platform. Its content is intended for learning and examination preparation and should not be considered a substitute for official examination notifications, professional forensic training, or legal advice.
-
-## 📄 License
-
-Add an appropriate open-source license if you intend to distribute this project's source code publicly.
+🌐 Website: https://www.forensicbuzz.com
 
 ---
 
-**ForensicBuzz** – Learn. Practice. Investigate.
+## 🔬 Overview
+
+ForensicBuzz aims to simplify forensic science preparation by providing structured and exam-focused learning resources.
+
+The platform helps students prepare for forensic science exams with confidence through practice questions, notes, and mock tests. :contentReference[oaicite:3]{index=3}
+
+---
+
+## 📚 What the Platform Provides
+
+- 🧠 Daily updated forensic MCQs
+- 📄 Easy revision notes
+- 📊 Previous year questions (PYQs)
+- 📝 Full-length mock tests
+- 📖 Forensic science syllabus
+- 📚 Books and study materials
+
+These resources are designed to reflect real exam patterns and help students improve accuracy and time management. :contentReference[oaicite:4]{index=4}
+
+---
+
+## 🎯 Target Users
+
+ForensicBuzz is useful for:
+
+- Forensic Science students
+- University exam preparation
+- Competitive exam aspirants
+- UGC NET forensic students
+- FSL exam preparation
+
+---
+
+## 🧪 Learning Approach
+
+The platform focuses on:
+
+- Concept clarity
+- Exam-oriented practice
+- Performance improvement
+- Structured study resources
+
+Practice tests simulate real exam environments to improve confidence and time management. :contentReference[oaicite:5]{index=5}
+
+---
+
+## ⚠️ Disclaimer
+
+ForensicBuzz is an independent educational platform and is **not affiliated with any government organization**.
+
+Job and vacancy information is collected from official sources and should always be verified from the official website before applying. :contentReference[oaicite:6]{index=6}
+
+---
+
+## 🚀 Mission
+
+The mission of ForensicBuzz is to make **forensic science education accessible, structured, and affordable for students across India**.
+
+---
+
+## 🛠 Possible Tech Stack
+
+- HTML
+- CSS
+- JavaScript
+- Database for MCQs
+- Web hosting / cloud deployment
+
+---
+
+## 🤝 Contributing
+
+Contributions and improvements are welcome.

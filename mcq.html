@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MCQ Practice</title>
+  
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #eef2ff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    /* TOPIC CARDS */
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .topic-card {
+      background: linear-gradient(135deg, #8ec5fc, #e0c3fc);
+      padding: 20px;
+      border-radius: 15px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .topic-card h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    /* MCQ BOX */
+
+    .mcq-box {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      border: none;
+      border-radius: 6px;
+      background: #f1f1f1;
+      cursor: pointer;
+    }
+
+    .options button:hover {
+      background: #ddd;
+    }
+
+    .correct {
+      background: #9be7a6 !important;
+    }
+
+    .wrong {
+      background: #ff9c9c !important;
+    }
+
+    .answer {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>MCQ Practice</h1>
+
+  <!-- TOPIC CARDS -->
+  <div id="topics" class="topic-grid"></div>
+
+  <!-- MCQ LIST -->
+  <div id="mcq-list"></div>
+
+  <script type="module" src="mcqs.js"></script>
+
+</body>
+
+</html>
